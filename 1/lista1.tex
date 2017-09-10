@@ -12,6 +12,7 @@
 \usepackage{graphicx}
 \usepackage{etoolbox}
 \usepackage{wasysym}
+\usepackage{xfrac}
 \usepackage{fancyvrb}
 \usepackage[implicit=false]{hyperref}
 \usepackage[a4paper, total={6.5in, 9.5in}]{geometry}
@@ -36,6 +37,7 @@
 \newcommand{\Zm}[1]{\ensuremath{\mathbb{Z}[#1]}}
 \newcommand{\Cong}[3]{\ensuremath{#1 \equiv #2 \, \textrm{mod } #3}}
 \newcommand{\Div}[2]{\ensuremath{#1 | #2}}
+\newcommand{\mcd}[2]{\ensuremath{\textrm{mcd}\left(#1, #2\right)}}
 
 
 \newtheorem*{ej}{Ejercicio}
@@ -44,14 +46,58 @@
 \maketitle
 
 \begin{ej} 
-    Asumiendo que el anillo \Zm{\frac{1 + \sqrt{-19}}{2}} es DFU, probar que $(x, y) = (\pm 18, 7)$
+    Asumiendo que el anillo \Zm{\alpha = \frac{1 + \sqrt{-19}}{2}} es DFU, probar que $(x, y) = (\pm 18, 7)$
 son las únicas soluciones enteras de la ecuación
 
     $$x^2 + 19 = y^3$$
 \end{ej}
 
 \begin{proof}[Resoluci\'on]
-TBD
+Si factorizamos $x^2 + 19$ en \Zm{\alpha}, tenemos
+\begin{eqnarray*}
+    x^2 + 19 &=& (x + \sqrt{-19}) (x - \sqrt{-19}) \\
+             &=& \left((x-1) + 2\alpha \right) \left((x+1) - 2\alpha\right) \\
+             &=& \beta \dot \gamma
+\end{eqnarray*}
+
+Consideremos un
+$\delta = a + b \alpha \in \Zm{\alpha}$
+tal que $\Div{\delta}{\beta}$ y $\Div{\delta}{\gamma}$. Luego, se tiene que
+$$\Div{\delta}{\left((x-1) + 2\alpha \right) - \left((x+1) - 2\alpha\right)} = -2 + 4\alpha = 2 (-1 + 2\alpha) = \eta$$
+
+Puesto que \Zm{\alpha} es un dominio de factorización única, $\eta$ es expresable como producto de primos
+de forma única (salvo asociados). Por ende, supongamos que $\delta$ es un divisor primo de $\eta$. De esta forma,
+$\Div{\delta}{2}$ o bien $\Div{\delta}{-1 + 2\alpha}$, de lo que sigue que 
+$\Div{N(\delta)}{N(2) = 4}$ o bien \Div{N(\delta)}{N(-1 + 2\alpha) = 19}, siendo $N(u + v \alpha) = u^2 + uv + 5v^2$
+la norma de \Zm{\alpha}. Observemos que, como función de $u$, $f(u) = N(u + v_0\alpha) = u^2 + uv_0 + 5v_0^2$ es
+decreciente hasta $u = \sfrac{-v_0}{2}$, donde alcanza su mínimo, y luego creciente. De esta forma,
+$$N(u + v\alpha) = u^2 + uv + 5v^2 \geq \left(\sfrac{-v}{2}\right)^2 + \left(\sfrac{-v}{2}\right) \, v + 5v^2 = \sfrac{19}{4} \, v^2$$
+
+Además, si buscamos que $\Div{\delta}{2}$ o que \Div{\delta}{-1 + 2\alpha}, necesariamente debe ocurrir 
+que $b \neq 0$ si nos proponemos encontrar divisores no triviales.
+Así, $N(\delta) \geq \sfrac{19}{4} > 4$, por lo que $\Div{\delta}{2}$ sólo si $\delta$ es una
+unidad de \Zm{\alpha}. Por otro lado, siempre que $|b| > 2$, $N(\delta) > 19$, de manera que $b = \pm 2$
+si buscamos un divisor no unidad de $-1 + 2\alpha$. No obstante, en tales casos los únicos valores de $\delta$
+posibles son precisamente $-1 + 2\alpha$ y $1 - 2\alpha$. En consecuencia, puesto que 
+$\delta = \pm (-1 + 2\alpha)$ no puede ser divisor simultáneo de $\beta$ y de $\gamma$,
+se tiene que $\beta$ y $\gamma$ son coprimos en \Zm{\alpha} o bien el único divisor no unidad que comparten
+es $2$. En el primer caso, deben ser $\beta$ y $\gamma$ cubos simultáneamente de forma tal de satisfacer
+la ecuación deseada. En particular, deben existir ciertos $c, d \in \mathbb{Z}$ tales que
+\begin{eqnarray*}
+    \beta = (x-1) + 2\alpha &=& (c + d \alpha)^3 \\
+          &=& \left(c^3 - 5d^3 - 15cd^2 \right) + \left(3c^2d - 4d^3 + 3cd^2 \right) \alpha
+\end{eqnarray*}
+de lo que, por unicidad de escritura, sigue que
+$$d (3c^2 - 4d^2 + 3cd) = 2$$
+y esto vale si y sólo si $d = 1$ y $c \in \{1, -2\}$. De esta forma, 
+$$x = 1 + c^3 - 5d^3 - 15cd^2 \in \{-18, 18\}$$
+lo cual permite concluir que, en cualquier caso, $y = 7$ reemplazando en la ecuación original.
+
+Finalmente, si $\beta$ y $\gamma$ comparten a 2 como único divisor común no unidad, es posible considerar
+$\beta'= 2\beta$ y $\gamma' = \frac{\gamma}{2}$ siendo así $\beta'$ y $\gamma'$ coprimos en \Zm{\alpha}.
+A través de un razonamiento similar al anterior, puede arribarse a la conclusión de que no existe una
+forma de expresar como cubo en \Zm{\alpha} a $\gamma'$. Por ende, esto termina de probar que las 
+únicas soluciones posibles a la ecuación planteada son las descriptas anteriormente.
 \end{proof}
 
 
