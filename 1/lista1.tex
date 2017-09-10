@@ -59,7 +59,7 @@ Si factorizamos $x^2 + 19$ en \Zm{\alpha}, tenemos
 \begin{eqnarray*}
     x^2 + 19 &=& (x + \sqrt{-19}) (x - \sqrt{-19}) \\
              &=& \left((x-1) + 2\alpha \right) \left((x+1) - 2\alpha\right) \\
-             &=& \beta \dot \gamma
+             &=& \beta \cdot \gamma
 \end{eqnarray*}
 
 Consideremos un
@@ -193,7 +193,58 @@ Caracterización de los irreducibles de \Zm{i}.
 \end{ej}
 
 \begin{proof}[Resoluci\'on]
-TBD
+$ $
+\begin{enumerate}[i.]
+    \item La cuenta es inmediata:
+    $$(-i)(1+i)^2 = (-i)(1 + 2i - 1) = 2$$
+    Consideremos ahora los divisores de $1+i$ en \Zm{i}. Sea entonces
+    $\alpha \in \Zm{i}$ tal que \Div{\alpha}{1+i}, de manera que
+    $\Div{N(\alpha)}{N(1 + i) = 2}$. Luego, $N(\alpha) \in \{1, 2\}$.
+    No obstante, todos los elementos de \Zm{i} con norma 2 son asociados
+    de $1 + i$, con lo cual se concluye que $1 + i$ es irreducible en dicho anillo.
+
+    \item Sea $p$ primo en $\ZZ$ tal que \Cong{p}{3}{4}. Consideremos un
+    divisor primo $\alpha = a + bi \in \Zm{i}$ de $p$. Debe ocurrir que $\Div{N(\alpha)}{N(p) = p^2}$, 
+    por lo que $N(\alpha) \in \{p, p^2\}$. No obstante $N(\alpha) = a^2 + b^2 \neq p$ como
+    consecuencia del ejercicio anterior (esto sólo es posible cuando $\Cong{p}{1}{4}$). Luego,
+    debe ser $N(\alpha) = p^2$. Pero, entonces,
+    $$p ^2 = N(p) = N(\alpha \cdot \beta) = N(\alpha) N(\beta) = p^2 \, N(\beta)$$
+    de manera que $N(\beta) = 1$. Por ende, $\beta$ es unidad y $p$ es asociado a $\alpha$,
+    por lo que es irreducible en \Zm{i}.
+
+    \item Dado $p$ primo en $\ZZ$ tal que $\Cong{p}{1}{4}$, del ejercicio anterior tenemos
+    que $p = x^2 + y^2$ para ciertos $x, y \in \ZZ$. Luego, $p = (x + yi)(x -yi)$ en \Zm{i}.
+    Sea $\alpha = a + bi \in \Zm{i}$ un divisor primo de $x + yi$. Luego,
+    $\Div{N(\alpha)}{N(x+yi) = p}$, de lo que se desprende que $N(\alpha) = a^2 + b^2 = p$.
+    Entonces,
+    $$(a + bi)(a - bi) = (x + yi)(x - yi)$$
+    Y, escribiendo $x + yi = \alpha \cdot \beta$,
+    $$\alpha (a - bi) = \alpha \cdot \beta (x - yi)$$
+    Al ser \Zm{i} un DFU y $\alpha$ primo, tenemos que $a - bi = \beta (x - yi)$, con
+    lo cual
+    \begin{eqnarray*}
+        p &=& N(a - bi) \\ 
+          &=& N(\beta (x - yi)) \\
+          &=& N(\beta) N(x - yi) \\
+          &=& N(\beta) p
+    \end{eqnarray*}
+    Por ende, se tiene que $N(\beta) = 1$ o, en otras palabras, $\beta$ es una unidad. Así,
+    $x + yi$ es asociado de $\alpha$, de manera que es irreducible en \Zm{i}. Un argumento
+    similar puede darse para la irreducibilidad de $x - yi$. Observar que ambos son no
+    asociados puesto que ninguna unidad $\nu$ del anillo es tal que $x + yi = \nu (x - yi)$.
+
+    \item Sea $\pi$ un irreducible de \Zm{i}. Puesto que $N(\pi) > 1$, debe existir algún
+    primo $p \in \ZZ$ tal que $\Div{p}{N(\pi) = \pi \bar{\pi}}$, es decir, 
+    $\pi \bar{\pi} = p q$ para algún $q \in \ZZ$. Primero notemos que, si $\bar{\pi} \in \ZZ$,
+    se tiene que $\pi = \bar{\pi} \in \ZZ$, con lo que necesariamente $\pi = \pm p$. Así,
+    por factorización única en \Zm{i}, $\pi$ debe ser tal que \Cong{\pi}{3}{4}.
+    Ahora consideremos $\bar{\pi} \not\in \ZZ$. De ser
+    así, existe por lo menos un factor irreducible de $p$ que no aparece en $\bar{\pi}$.
+    Dicho factor, pues, debe ser necesariamente asociado a $\pi$, de nuevo valiéndonos de la
+    factorización única en \Zm{i}.
+
+\end{enumerate}
+
 \end{proof}
 
 \begin{ej} 
