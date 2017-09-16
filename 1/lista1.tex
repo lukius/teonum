@@ -121,6 +121,9 @@ primo impar, entonces $p = x^2 + y^2$ si y sólo si $\Cong{p}{1}{4}$.
     unidades, concluir que $p$ es suma de dos cuadrados.
 
     \item Caracterizar los $n \in \mathbb{N}$ que son suma de dos cuadrados.
+    \textbf{Nota:} excluyo deliberadamente al 0 de la suma para hacer el ejercicio
+    más interesante (de lo contrario, quedan cubiertos muchos casos que simplifican
+    los razonamientos --en particular, todos los cuadrados perfectos).
 \end{enumerate}
 
 \end{ej}
@@ -170,7 +173,7 @@ Observar que los dos primeros casos no pueden suceder puesto que, de ser así,
 $\alpha$ o $\beta$ serán una unidad de \Zm{i}. Luego, del último ítem se 
 desprende lo que buscábamos.
 
-\item Veremos que $n \in \mathbb{N}$ es suma de dos cuadrados si y sólo si
+\item Veremos que $n \in \mathbb{N}$ es suma de dos cuadrados positivos si y sólo si
 \begin{itemize}
     \item $n$ es libre de cuadrados y $\Div{p}{n} \Rightarrow p = 2$ o \Cong{p}{1}{4}, o bien
     \item $n = m^2 \, u$ para ciertos $m, u \in \mathbb{N}$ tales que 
@@ -181,6 +184,50 @@ En definitiva, la primera condición es redundante puesto que se desprende de la
 segunda tomando $m = 1$ y $u$ libre de cuadrados. Es decir, lo que hay que ver es que
 $n$ es suma de dos cuadrados si y sólo si $n = m^2 \, u$ para ciertos $m, u \in \mathbb{N}$ tales que 
     $u > 1$ y $\Div{p}{u} \Rightarrow \Cong{p}{1}{4}$ o $p = 2$ y $4 \nmid u$.
+
+Observemos primero que, si $n$ y $m$ son impares y suma de dos cuadrados, entonces
+$nm$ también lo es. Notar que, si $n = a^2 + b^2$ y $n$ es impar, entonces $a \neq b$,
+de lo que sigue que, si $m = c^2 + d^2$ es también impar, entonces $ac \neq bd$ o bien
+$ad \neq bc$. Luego, suponiendo lo primero, 
+$$nm = (a^2 + b^2) (c^2 + d^2) = (ac + bd)^2 + (ac - bd)^2$$
+Además, si $n = 2 = 1^2 + 1^2$,
+$$2m = 2 (c^2 + d^2) = (c + d)^2 + (c - d)^2$$ 
+
+Veamos ahora que, dado $n = m^2 \, u$ para ciertos $m, u \in \mathbb{N}$ tales que 
+    $u > 1$ y $\Div{p}{u} \Rightarrow \Cong{p}{1}{4}$ o $p = 2$ y $4 \nmid u$, $n$ es suma
+de dos cuadrados. Por las observaciones anteriores y los ítems previos del ejercicio, 
+tenemos que $u = a^2 + b^2$ para ciertos $a, b \in \ZZ$. Luego,
+$$m^2 u = m^2 (a^2 + b^2) = (ma)^2 + (mb)^2$$
+ 
+Finalmente, consideremos $n = a^2 + b^2$ para $a, b \in \ZZ$. Supongamos primero que
+$n$ es libre de cuadrados y que $p$ es un primo que divide a $n$ tal que \Cong{p}{3}{4}.
+Por el ejercicio siguiente, $p$ es pues primo en \Zm{i} y \Div{p}{n = (a+bi)(a-bi)}, de
+manera que \Div{p}{a+bi} o bien \Div{p}{a-bi}. En cualquier caso, \Div{p^2}{a^2 + b^2 = n}, lo
+cual contradice el hecho de que $n$ sea libre de cuadrados. De esta forma, $n$ debe ser
+producto de primos pares o congruentes a 1 módulo 4. Por ende,
+basta tomar $m = 1$ para ver que $n = m^2 u$ con las restricciones solicitadas.
+
+Supongamos ahora que $n$ no es libre de cuadrados. De esta forma, podemos agrupar
+todas las potencias pares de primos que dividen a $n$ en un único factor $m^2$ y
+dejar otro factor $u$ libre de cuadrados. Así, $n = m^2 u$, con $u \geq 1$.
+Tomemos $u > 1$ y supongamos que existe cierto primo $p$ tal que 
+$\Div{p}{u}$, $\Div{p}{m}$ y \Cong{p}{3}{4}. De esta forma,
+$$n = m^2 u = p^{2k+1} m'^2 u'$$
+para algún $k > 0$. Al igual que antes, tenemos que $p$ es primo en \Zm{i} y, por ende,
+debe dividir a $a+bi$ o $a - bi$. No obstante, observar que todo entero $z$ 
+que divide a $a+bi$ debe necesariamente dividir también a $a-bi$. Así, si
+\Div{p^r}{a+bi}, \Div{p^r}{a-bi}, de lo que sigue que \Div{p^{2r}}{a^2 + b^2 = n}.
+Se ve pues que la potencia de $p$ no puede ser impar, de lo que se desprende que
+$p$ no puede ser congruente a 3 módulo 4 y dividir a $u$.
+
+Por último, supongamos que $u = 1$, de lo que sigue que $n$ es un cuadrado. De haber
+al menos un primo divisor de $m$ congruente a 1 módulo 4, podemos tomar $m = m'^2 z^2$,
+de forma que todos los primos divisores de $n$ pares o congruentes a 3 módulo 4
+queden agrupados totalmente en $m'$. Se ve así que $n$ 
+queda expresado en la forma que buscamos tomando $u = z^2 > 1$. 
+De no haber ningún primo divisor de $m$ congruente a 1 módulo 4, se puede ver que debe
+ser $a + bi = a - bi$, lo cual no puede ocurrir siendo $b \neq 0$.
+
 
 \end{enumerate}
 
